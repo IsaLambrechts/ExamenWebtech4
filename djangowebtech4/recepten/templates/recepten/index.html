@@ -1,0 +1,18 @@
+<h1>Recepten</h1>
+
+<br/>
+<ul>
+   {% for recept in alle_recepten %}
+       <li><a href="/recepten/{{ recept.id }}/">{{ recept.name }}</a></li>
+   {% endfor %}
+</ul>
+
+<h1>Add Recept</h1>
+<form method="post" action="">
+  {% csrf_token %}
+  Naam: <input type="text" name="naam"/></br></br>
+  Aantal caloriën: <input type="text" name="calorien"/></br></br>
+  Ingrediënten: <input type="text" name="ingredienten"/></br></br>
+  Benodigde tijd: <input type="text" name="benodigdetijd"/></br></br>
+  <input type="submit" value="Voeg toe"/>
+</form>
