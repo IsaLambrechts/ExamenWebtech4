@@ -1,7 +1,7 @@
 from django.shortcuts import render
-
-# Create your views here.
+from .models import Recept
 
 
 def index(request):
-    return render(request, 'recepten/index.html', {})
+    recepten = Recept.objects.all()
+    return render(request, 'recepten/index.html', {"recepten": recepten})
