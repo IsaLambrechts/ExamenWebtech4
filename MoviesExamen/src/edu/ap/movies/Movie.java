@@ -32,7 +32,7 @@ public class Movie {
 	public String searchMovie(@PathParam("title") String title) throws ParseException{
 		
 		
-		Jedis jedis = new Jedis("localhost", 6379);
+		Jedis jedis = new Jedis("127.0.0.1", 6379);
 		
 		jedis.connect();
 		jedis.select(0);
@@ -82,7 +82,7 @@ public class Movie {
 			
 	        Document movie = new Document();
 	        movie.append("title", object.getString("movie"));
-	        movie.append("year", object.getString("year"));
+	        movie.append("actor", object.getString("actor"));
 	   
 	        jedis.lset("movies", Long.parseLong("-1"),movie.toString());
 	        
