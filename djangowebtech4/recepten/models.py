@@ -12,6 +12,7 @@ class Recept(models.Model):
 
 class Ingredient(models.Model):
     recept = models.ForeignKey(Recept, on_delete=models.CASCADE)
+    ingredient = models.CharField(max_length=200)
 
 
 
