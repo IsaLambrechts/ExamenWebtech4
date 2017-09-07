@@ -27,7 +27,7 @@ import redis.clients.jedis.Jedis;
 @Path("/movies")
 public class Movie {
 	@GET
-	@Path("{title}")
+	@Path("{/title}")
 	@Produces({"text/html"})
 	public String searchMovie(@PathParam("title") String title) throws ParseException{
 		
@@ -83,6 +83,7 @@ public class Movie {
 	        Document movie = new Document();
 	        movie.append("title", object.getString("movie"));
 	        movie.append("actor", object.getString("actor"));
+	        movie.append("year", object.getString("year"));
 	   
 	        jedis.lset("movies", Long.parseLong("-1"),movie.toString());
 	        
